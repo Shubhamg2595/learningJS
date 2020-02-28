@@ -12,38 +12,38 @@
 
 // remember the analogy of thali
 
-function obj(givenName)
-{
-    this.name = givenName;
-}
+// function obj(givenName)
+// {
+//     this.name = givenName;
+// }
 
-// prototyping new methods
+// // prototyping new methods
 
-obj.prototype.getName = function()
-{
-    return this.name;
-}
+// obj.prototype.getName = function()
+// {
+//     return this.name;
+// }
 
-obj.prototype.setName = function(newName)
-{
-    this.name = newName;
-}
+// obj.prototype.setName = function(newName)
+// {
+//     this.name = newName;
+// }
 
 
-obj.prototype.setAge = function(age)
-{
-    this.age = age;
-}
+// obj.prototype.setAge = function(age)
+// {
+//     this.age = age;
+// }
 
-obj.prototype.getAge = function(){
-    return this.age;
-}
+// obj.prototype.getAge = function(){
+//     return this.age;
+// }
 
-let obj1 = new obj('shubham');
+// let obj1 = new obj('shubham');
 
-console.log('obj:::',obj1);
+// console.log('obj:::',obj1);
 
-obj1.setName('SHubham Gupta');
-obj1.setAge(23);
+// obj1.setName('SHubham Gupta');
+// obj1.setAge(23);
 
-console.log('new details:::', obj1)
+// console.log('new details:::', obj1)
