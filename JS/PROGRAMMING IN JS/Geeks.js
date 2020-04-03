@@ -1,4 +1,3 @@
-
 // GEEKSFORGEEKS : MUST DO ARRAY CODING_QUESTIONS
 
 /**
@@ -669,591 +668,578 @@ Find Missing And Repeating
 Given an unsorted array of size N of positive integers. One number 'A' from set {1, 2, …N} is missing and one number 'B' occurs twice in array. Find these two numbers.
 */
 
-// const linearSum = n => {
+const linearSum = n => {
 
-//     return n*((n+1)/2);
-//  }
-
-//  function findDuplicatesInArr(arr) {
-
-//      let countObj = {};
-//      let duplicate = null;
-
-//      for (let i = 0; i < arr.length; i++) {
-//          countObj[arr[i]] = countObj[arr[i]] ? countObj[arr[i]] + 1 : 1;
-//          if (countObj[arr[i]] > 1) {
-//              duplicate = arr[i]
-//          }
-//      }
-
-//      return duplicate;
-
-//  }
-
-// console.log('duplicateInArray', findDuplicatesInArr([1, 2, 2]))
-
-//  function findMissAndRepeat(a) {
-
-//      let len = a.length;
-//      let arithSum = linearSum(len);
-
-//      let arrSum = a.reduce((prev, curr) => prev + curr);
-
-//      let missing = arithSum > arrSum ? arithSum - arrSum : arrSum - arithSum;
-
-//      let duplicate = findDuplicatesInArr(a);
-
-
-//      console.log('missing number is', missing)
-//      console.log('duplicate number is', duplicate)
-
-//  }
-
-//  // let a = [2, 2]
-//  let a = [1, 3, 3]
-
-//  findMissAndRepeat(a);
-
-
-/**
-* currying sum in JS
-*
+    return n*((n+1)/2);
+ }
+ 
+ function findDuplicatesInArr(arr) {
+ 
+     let countObj = {};
+     let duplicate = null;
+ 
+     for (let i = 0; i < arr.length; i++) {
+         countObj[arr[i]] = countObj[arr[i]] ? countObj[arr[i]] + 1 : 1;
+         if (countObj[arr[i]] > 1) {
+             duplicate = arr[i]
+         }
+     }
+ 
+     return duplicate;
+ 
+ }
+ 
+ // console.log('duplicateInArray', findDuplicatesInArr([1, 2, 2]))
+ 
+ function findMissAndRepeat(a) {
+ 
+     let len = a.length;
+     let arithSum = linearSum(len);
+ 
+     let arrSum = a.reduce((prev, curr) => prev + curr);
+ 
+     let missing = arithSum > arrSum ? arithSum - arrSum : arrSum - arithSum;
+ 
+     let duplicate = findDuplicatesInArr(a);
+ 
+ 
+     console.log('missing number is', missing)
+     console.log('duplicate number is', duplicate)
+ 
+ }
+ 
+ // let a = [2, 2]
+ let a = [1, 3, 3]
+ 
+ findMissAndRepeat(a);
+ 
+ 
+ /**
+ * currying
+ *
 
 
 function sum(num)
 {
-   let total = num;
-   return function add(y)
-   {
-       if(arguments.length)
-       {   
-           total+=y;
-           return add;
-       }
-       return total;
-   }
-}
-
-
-console.log(sum(1)(2)(8)(13)())
-*/
-
-
-
-
-
-
-/**
-* Throttling in JS
-*
-*/
-
-const throttle = (functionToBeThrottled, limit) => {
-    let flag = true;
-    let context = this, args = arguments;
-
-    return function () {
-        if (flag) {
-            functionToBeThrottled.apply(context, args);
-            flag = false;
-            setTimeout(() => {
-                flag = true;
-            }, limit)
+    let total = num;
+    return function add(y)
+    {
+        if(arguments.length)
+        {
+            total+=y;
+            return add;
         }
+        return total;
     }
 }
 
 
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
+console.log(sum(1)(2)(8)(13)())
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+ *
+ *
+ */
+ 
+ 
+ 
+ 
+ 
+ 
+ 

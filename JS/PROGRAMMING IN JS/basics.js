@@ -729,7 +729,73 @@
 
 // *
 
+// var num = parseInt(process.argv[2]);
 
+
+// // function power(x,pow)
+// // {
+// //     let result = x;
+// //     for(let i=1;i<pow;i++)
+// //     {
+// //         result*=x
+// //     }
+// //     return result;
+// // }
+
+
+
+// isArmStrong(num);
+import React, { useState, useEffect } from "react";
+
+function Numbers() {
+
+    const [number,setNumber] = useState(null);
+    const [isArmStrongNumber,setIsArmstrongNumber] = useState('false');
+    const [sum,setArmstrongSum]= useState(0);
+
+    function isArmStrong(num) {
+
+        let len = String(num).length;
+        let rem = 0, sum = 0;
+        while (num > 0) {
+            rem = num % 10;
+            sum += Math.pow(rem, len);
+            num = parseInt(num/10) 
+        }
+       return sum;
+    
+    }
+
+    function handleChange(event)
+    {
+        setNumber(event.target.value);
+        // setIsArmstrongNumber(isArmStrong(event.target.value));
+    }
+
+    useEffect( () => {
+
+        let result = isArmStrong(number)
+        if(result === num)
+        {
+            setIsArmstrongNumber('True')
+        }
+        setIsArmstrongNumber('False');
+        setArmstrongSum(result);
+
+    }, [number])
+
+
+    return (
+        <>
+            <div>
+                <input type="number" onChange={(e) => handleChange(e)} />
+            </div>
+            <div> ArmStrong Number entered = {sum} </div>
+            <div> {isArmStrongNumber} </div>
+        </>
+    )
+
+}
 
 // !___________________________________________________________
 
