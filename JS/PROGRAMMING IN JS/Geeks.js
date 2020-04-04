@@ -30,6 +30,34 @@
 // }
 
 
+// updated code to get All size pairs
+
+// function getAllSubsets(arr,target)
+// {
+
+//     let len = arr.length;
+//     let subSets = [];
+//     for(let i=0;i<len;i++)
+//     {
+//         let temp = [];
+//         for(let j=i;j<len;j++)
+//         {
+//             temp.push(arr[j]);
+//             if(sum(temp) === target)
+//             {
+//                 subSets.push([...temp])
+//                 temp.pop();
+//             }
+//             if(sum(temp) > target)
+//             {
+//                 temp.pop();
+//             }
+//         }
+//     }
+//     return subSets
+
+// }
+
 // console.log(getAllSubsets([1,4,2,2,-5,10],5));
 // console.log(getAllSubsets([3,4,-7,1,3,3,1,-4], 7));
 
@@ -396,6 +424,27 @@ Testcase 2: For second test case equilibrium point is at position 3 as elements 
 //  findPivot(a);
 
 
+// const sum = (arr) => arr.reduce((a, b) => a + b);
+
+// function findPivot(arr) {
+//     let len = arr.length;
+//     let pivotIndex = -1;
+//     for (let i = 0;i<len-2;i++)
+//     {
+//         let leftTmp = sum(arr.slice(0,i+1));
+//         let rightTmp = sum(arr.slice(i+2));
+
+//         // console.log(leftTmp,'          ',rightTmp);
+//         if(leftTmp === rightTmp)
+//         {
+//             pivotIndex = i+2;
+//         }
+//     }
+//     console.log(pivotIndex); 
+
+
+// }
+
 
 
 /**
@@ -501,11 +550,35 @@ Testcase 1: Reversing groups in size 3, first group consists of elements 1, 2, 3
 //     return newArr;
 // }
 
+
+
+// function reverseArrayInGroups(arr, k) {
+//     let count = Math.floor(arr.length / 2);
+
+//     let reversedArr = [], startIndex = k - 1, endIndex = 0;
+//     while (count > 0) {
+
+//         for(let i = startIndex;i>=endIndex;i--)
+//         {
+//             reversedArr.push(arr[i]);
+//         }
+//         endIndex = startIndex+1;
+//         startIndex = startIndex + k > arr.length-1 ? arr.length-1 : startIndex + k;
+        
+//         count-=1;
+//         console.log('s',startIndex)
+//         console.log('e',endIndex)
+        
+//     }
+//     console.log(reversedArr);
+// }
 // // let a = [1, 2, 3, 4, 5];
 // // let a = [20, 10, 40, 30, 60, 50];
 // let a = [10, 20, 30, 40, 50, 60];
 
 // reverseArrayInGroups(a, 2)
+
+
 
 
 
@@ -670,576 +743,575 @@ Given an unsorted array of size N of positive integers. One number 'A' from set 
 
 const linearSum = n => {
 
-    return n*((n+1)/2);
- }
- 
- function findDuplicatesInArr(arr) {
- 
-     let countObj = {};
-     let duplicate = null;
- 
-     for (let i = 0; i < arr.length; i++) {
-         countObj[arr[i]] = countObj[arr[i]] ? countObj[arr[i]] + 1 : 1;
-         if (countObj[arr[i]] > 1) {
-             duplicate = arr[i]
-         }
-     }
- 
-     return duplicate;
- 
- }
- 
- // console.log('duplicateInArray', findDuplicatesInArr([1, 2, 2]))
- 
- function findMissAndRepeat(a) {
- 
-     let len = a.length;
-     let arithSum = linearSum(len);
- 
-     let arrSum = a.reduce((prev, curr) => prev + curr);
- 
-     let missing = arithSum > arrSum ? arithSum - arrSum : arrSum - arithSum;
- 
-     let duplicate = findDuplicatesInArr(a);
- 
- 
-     console.log('missing number is', missing)
-     console.log('duplicate number is', duplicate)
- 
- }
- 
- // let a = [2, 2]
- let a = [1, 3, 3]
- 
- findMissAndRepeat(a);
- 
- 
- /**
- * currying
- *
+    return n * ((n + 1) / 2);
+}
+
+function findDuplicatesInArr(arr) {
+
+    let countObj = {};
+    let duplicate = null;
+
+    for (let i = 0; i < arr.length; i++) {
+        countObj[arr[i]] = countObj[arr[i]] ? countObj[arr[i]] + 1 : 1;
+        if (countObj[arr[i]] > 1) {
+            duplicate = arr[i]
+        }
+    }
+
+    return duplicate;
+
+}
+
+// console.log('duplicateInArray', findDuplicatesInArr([1, 2, 2]))
+
+function findMissAndRepeat(a) {
+
+    let len = a.length;
+    let arithSum = linearSum(len);
+
+    let arrSum = a.reduce((prev, curr) => prev + curr);
+
+    let missing = arithSum > arrSum ? arithSum - arrSum : arrSum - arithSum;
+
+    let duplicate = findDuplicatesInArr(a);
+
+
+    console.log('missing number is', missing)
+    console.log('duplicate number is', duplicate)
+
+}
+
+// let a = [2, 2]
+let a = [1, 3, 3]
+
+findMissAndRepeat(a);
+
+
+/**
+* currying
+*
 
 
 function sum(num)
 {
-    let total = num;
-    return function add(y)
-    {
-        if(arguments.length)
-        {
-            total+=y;
-            return add;
-        }
-        return total;
-    }
+   let total = num;
+   return function add(y)
+   {
+       if(arguments.length)
+       {
+           total+=y;
+           return add;
+       }
+       return total;
+   }
 }
 
 
 console.log(sum(1)(2)(8)(13)())
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- /**
- *
- *
- */
- 
- 
- 
- 
- 
- 
- 
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+
+/**
+*
+*
+*/
+
+
+
+
+
+

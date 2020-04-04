@@ -1,4 +1,3 @@
-
 // GEEKSFORGEEKS : MUST DO ARRAY CODING_QUESTIONS
 
 /**
@@ -30,6 +29,34 @@
 //   return subSets;
 // }
 
+
+// updated code to get All size pairs
+
+// function getAllSubsets(arr,target)
+// {
+
+//     let len = arr.length;
+//     let subSets = [];
+//     for(let i=0;i<len;i++)
+//     {
+//         let temp = [];
+//         for(let j=i;j<len;j++)
+//         {
+//             temp.push(arr[j]);
+//             if(sum(temp) === target)
+//             {
+//                 subSets.push([...temp])
+//                 temp.pop();
+//             }
+//             if(sum(temp) > target)
+//             {
+//                 temp.pop();
+//             }
+//         }
+//     }
+//     return subSets
+
+// }
 
 // console.log(getAllSubsets([1,4,2,2,-5,10],5));
 // console.log(getAllSubsets([3,4,-7,1,3,3,1,-4], 7));
@@ -163,7 +190,7 @@ Testcase 1: Given array : 1 2 3 5. Missing element is 4.
 
 /**
  *  Merge Without Extra Space
- * 
+ *
  * Given two sorted arrays arr1[] and arr2[] in non-decreasing order with size n and m. The task is to merge the two sorted arrays into one sorted array (in non-decreasing order).
 
 Example:
@@ -206,14 +233,14 @@ Testcase 1: After merging two non-decreasing arrays, we have, 0 1 2 3 5 6 7 8 9.
 /**
  *
  * Rearrange Array Alternately
- * 
+ *
  * Given a sorted array of positive integers. Your task is to rearrange  the array elements alternatively i.e first element should be max value, second should be min value, third should be second max, fourth should be second min and so on...
- * 
+ *
  * Input:
 2
 6
 1 2 3 4 5 6
-11 
+11
 10 20 30 40 50 60 70 80 90 100 110
 
 Output:
@@ -258,7 +285,7 @@ Testcase 1: Max element = 6, min = 1, second max = 5, second min = 2, and so on.
 
  * Given an array of positive integers. The task is to find inversion count of array.
 
-Inversion Count : For an array, inversion count indicates how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum. 
+Inversion Count : For an array, inversion count indicates how far (or close) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the maximum.
 Formally, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
 
 Example:
@@ -301,12 +328,12 @@ Explanation:
 
 
 
-/** 
+/**
  * Sort an array of 0s, 1s and 2s
- * 
+ *
  * Given an array A of size N containing 0s, 1s, and 2s; you need to sort the array in ascending order.
  *
- * 
+ *
  * Example:
 Input :
 2
@@ -397,13 +424,34 @@ Testcase 2: For second test case equilibrium point is at position 3 as elements 
 //  findPivot(a);
 
 
+// const sum = (arr) => arr.reduce((a, b) => a + b);
+
+// function findPivot(arr) {
+//     let len = arr.length;
+//     let pivotIndex = -1;
+//     for (let i = 0;i<len-2;i++)
+//     {
+//         let leftTmp = sum(arr.slice(0,i+1));
+//         let rightTmp = sum(arr.slice(i+2));
+
+//         // console.log(leftTmp,'          ',rightTmp);
+//         if(leftTmp === rightTmp)
+//         {
+//             pivotIndex = i+2;
+//         }
+//     }
+//     console.log(pivotIndex); 
+
+
+// }
+
 
 
 /**
  *Leaders in an array
 
  Given an array of positive integers. Your task is to find the leaders in the array.
-Note: An element of array is leader if it is greater than or equal to all the elements to its right side. Also, the rightmost element is always a leader. 
+Note: An element of array is leader if it is greater than or equal to all the elements to its right side. Also, the rightmost element is always a leader.
 
 Example:
 Input:
@@ -502,11 +550,35 @@ Testcase 1: Reversing groups in size 3, first group consists of elements 1, 2, 3
 //     return newArr;
 // }
 
+
+
+// function reverseArrayInGroups(arr, k) {
+//     let count = Math.floor(arr.length / 2);
+
+//     let reversedArr = [], startIndex = k - 1, endIndex = 0;
+//     while (count > 0) {
+
+//         for(let i = startIndex;i>=endIndex;i--)
+//         {
+//             reversedArr.push(arr[i]);
+//         }
+//         endIndex = startIndex+1;
+//         startIndex = startIndex + k > arr.length-1 ? arr.length-1 : startIndex + k;
+
+//         count-=1;
+//         console.log('s',startIndex)
+//         console.log('e',endIndex)
+
+//     }
+//     console.log(reversedArr);
+// }
 // // let a = [1, 2, 3, 4, 5];
 // // let a = [20, 10, 40, 30, 60, 50];
 // let a = [10, 20, 30, 40, 50, 60];
 
 // reverseArrayInGroups(a, 2)
+
+
 
 
 
@@ -568,9 +640,9 @@ Testcase 1: Water trapped by block of height 4 is 3 units, block of height 0 is 
 
 /**
  * Pythagorean Triplet
- * 
+ *
  * Given an array of integers, write a function that returns true if there is a triplet (a, b, c) that satisfies a2 + b2 = c2.
- * 
+ *
  * Example:
 Input:
 1
@@ -671,52 +743,52 @@ Given an unsorted array of size N of positive integers. One number 'A' from set 
 
 // const linearSum = n => {
 
-//     return n*((n+1)/2);
-//  }
+//     return n * ((n + 1) / 2);
+// }
 
-//  function findDuplicatesInArr(arr) {
+// function findDuplicatesInArr(arr) {
 
-//      let countObj = {};
-//      let duplicate = null;
+//     let countObj = {};
+//     let duplicate = null;
 
-//      for (let i = 0; i < arr.length; i++) {
-//          countObj[arr[i]] = countObj[arr[i]] ? countObj[arr[i]] + 1 : 1;
-//          if (countObj[arr[i]] > 1) {
-//              duplicate = arr[i]
-//          }
-//      }
+//     for (let i = 0; i < arr.length; i++) {
+//         countObj[arr[i]] = countObj[arr[i]] ? countObj[arr[i]] + 1 : 1;
+//         if (countObj[arr[i]] > 1) {
+//             duplicate = arr[i]
+//         }
+//     }
 
-//      return duplicate;
+//     return duplicate;
 
-//  }
+// }
 
 // console.log('duplicateInArray', findDuplicatesInArr([1, 2, 2]))
 
-//  function findMissAndRepeat(a) {
+// function findMissAndRepeat(a) {
 
-//      let len = a.length;
-//      let arithSum = linearSum(len);
+//     let len = a.length;
+//     let arithSum = linearSum(len);
 
-//      let arrSum = a.reduce((prev, curr) => prev + curr);
+//     let arrSum = a.reduce((prev, curr) => prev + curr);
 
-//      let missing = arithSum > arrSum ? arithSum - arrSum : arrSum - arithSum;
+//     let missing = arithSum > arrSum ? arithSum - arrSum : arrSum - arithSum;
 
-//      let duplicate = findDuplicatesInArr(a);
+//     let duplicate = findDuplicatesInArr(a);
 
 
-//      console.log('missing number is', missing)
-//      console.log('duplicate number is', duplicate)
+//     console.log('missing number is', missing)
+//     console.log('duplicate number is', duplicate)
 
-//  }
+// }
 
-//  // let a = [2, 2]
-//  let a = [1, 3, 3]
+// // let a = [2, 2]
+// let a = [1, 3, 3]
 
-//  findMissAndRepeat(a);
+// findMissAndRepeat(a);
 
 
 /**
-* currying sum in JS
+* currying
 *
 
 
@@ -726,7 +798,7 @@ function sum(num)
    return function add(y)
    {
        if(arguments.length)
-       {   
+       {
            total+=y;
            return add;
        }
@@ -740,49 +812,138 @@ console.log(sum(1)(2)(8)(13)())
 
 
 
+/******************************************************************************************************* */
+/*                                           string section
+/*
+/******************************************************************************************************* */
+
+
+/**
+ * Reverse words in a given string
+ * Given a String of length S, reverse the whole string without reversing the individual words in it. Words are separated by dots.
+ * Example:
+Input:
+2
+i.like.this.program.very.much
+pqr.mno
+
+Output:
+much.very.program.this.like.i
+mno.pqr
+*
+*
+*/
+
+// function revStr(str,delim)
+// {
+//     return str.split(delim).reverse().join(delim)
+// }
+
+// console.log('rev of given String',revStr('much.very.program.this.like.i','.'))
 
 
 
 /**
-* Throttling in JS
+ * Write a program to print all permutations of a given string
+ *
+ *
+→next← prev
+Q. Program to find all the permutations of a string.
+To solve this problem, we need to understand the concept of backtracking.
+
+According to the backtracking algorithm:
+
+Fix a character in the first position and swap the rest of the character with the first character. Like in ABC, in the first iteration three strings are formed: ABC, BAC, and CBA by swapping A with A, B and C respectively.
+
+*
 *
 */
 
-const throttle = (functionToBeThrottled, limit) => {
-    let flag = true;
-    let context = this, args = arguments;
+// let findPermutations = (string) => {
+//   if (!string || typeof string !== "string") {
+//     return "Please enter a string"
+//   } else if (string.length < 2) {
+//     return string
+//   }
 
-    return function () {
-        if (flag) {
-            functionToBeThrottled.apply(context, args);
-            flag = false;
-            setTimeout(() => {
-                flag = true;
-            }, limit)
-        }
+//   let permutationsArray = []
+
+//   for (let i = 0; i < string.length; i++) {
+//     let char = string[i]
+
+//     if (string.indexOf(char) != i)
+//       continue
+
+//     let remainingChars = string.slice(0, i) + string.slice(i + 1, string.length)
+//     console.log ('remaining chars', remainingChars)
+//     console.log('permutationsArray', permutationsArray)
+
+//     for (let permutation of findPermutations(remainingChars)) {
+//       console.log('Permutations set', permutation, 'index', i)
+//       permutationsArray.push(char + permutation)
+//     }
+//   }
+//   return permutationsArray
+// }
+
+// let str = "ABC";
+// console.log(findPermutations(str));
+
+
+/**
+* Longest Palindrome in a String
+Given a string S, find the longest palindromic substring in S. Substring of string S: S[ i . . . . j ] where 0 ≤ i ≤ j < len(S). Palindrome string: A string which reads the same backwards. More formally, S is palindrome if reverse(S) = S. Incase of conflict, return the substring which occurs first ( with the least starting index ).
+*
+Testcase 1: The longest palindrome string present in the given string is "aabbaa".
+*/
+
+
+function longestPalin(str) {
+  if (str === null || str.length < 1) {
+    return "";
+  }
+
+  let start = 0, end = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let len1 = expandFromMiddle(str, i, i);
+    // let len2 = expandFromMiddle(str, i, i + 1);
+    let len = Math.max(len1);
+    if (len > end - start) {
+      start = i - parseInt((len - 1) / 2);
+      end = i + parseInt(len/2)
+      console.log(`len ${len} start ${start} end ${end}`)
+
+      
     }
+    // console.log(`len ${len} start ${start} end ${end}`)
+  }
+
+  console.log('longest palin is',str.slice(start,end+1)); 
+
+
+}
+
+function expandFromMiddle(str, left, right) {
+  if (str === null || (left > right)) {
+    return false;
+  }
+  // console.log(' BEFORE l::', left, 'r::', right);
+  while (left >= 0 && right < str.length && str[left] === str[right]) {
+    left--;
+    right++;
+  }
+  console.log(' l::', left, 'r::', right);
+  console.log('return ', right - left - 1);
+
+  return right - left - 1;
+
+
 }
 
 
-
-
-
-/**
-*
-*
-*/
-
-
-
-
-
-
-/**
-*
-*
-*/
-
-
+// longestPalin('abba')
+longestPalin('racecar')
 
 
 

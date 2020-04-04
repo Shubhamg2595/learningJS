@@ -561,7 +561,7 @@
 //     while(total !== 0)
 //     {
 //         if(coins[0]<=total)
-//         {
+//         { 
 //             coinsUsed.push(coins[0]);
 //             total-=coins[0];
 //         }
